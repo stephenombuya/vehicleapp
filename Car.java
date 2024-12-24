@@ -1,81 +1,87 @@
 package vehicleApp;
 
-public class Car  extends Vehicle {
-	
-	private int wheels;
-	private String type;
-	private int doors;
-	private int gears;
-	private boolean isManual;
-	private int currentGear;
+public class Car extends Vehicle {
 
-	public Car(String name, int wheels, String type, int doors, int gears, boolean isManual) {
-		super(name);
-		this.type = type;
-		this.gears = gears;
-		this.doors = doors;
-		this.isManual = isManual;
-		this.wheels = wheels;
-		currentGear = 1;
-	}
-	
-	public void changeGear(int newGear) {
-		this.currentGear = newGear;
-		System.out.println("changeGear method is called: Changed to " + this.currentGear + " gear ");	
-	}
-	
-	public void changeSpeed(int newSpeed, int newDirection) {
-		move(newSpeed, newDirection);
-		System.out.println("changeSpeed method is called: Speed -> " + newSpeed +" Direction -> " + newDirection);
-	}
+    private int wheels;
+    private String type;
+    private int doors;
+    private int gears;
+    private boolean isManual;
+    private int currentGear;
 
-	public int getWheels() {
-		return wheels;
-	}
+    // Constructor
+    public Car(String name, int wheels, String type, int doors, int gears, boolean isManual) {
+        super(name);
+        this.wheels = wheels;
+        this.type = type;
+        this.doors = doors;
+        this.gears = gears;
+        this.isManual = isManual;
+        this.currentGear = 1; // Starting gear
+    }
 
-	public void setWheels(int wheels) {
-		this.wheels = wheels;
-	}
+    // Change gear method
+    public void changeGear(int newGear) {
+        if (newGear >= 1 && newGear <= gears) {
+            this.currentGear = newGear;
+            System.out.println("Changed to gear " + this.currentGear);
+        } else {
+            System.out.println("Invalid gear change attempt");
+        }
+    }
 
-	public String getType() {
-		return type;
-	}
+    // Change speed and direction of the car
+    public void changeSpeed(int newSpeed, int newDirection) {
+        move(newSpeed, newDirection);
+        System.out.println("Speed changed to " + newSpeed + " km/h, Direction changed to " + newDirection + " degrees.");
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    // Getters and Setters
+    public int getWheels() {
+        return wheels;
+    }
 
-	public int getDoors() {
-		return doors;
-	}
+    public void setWheels(int wheels) {
+        this.wheels = wheels;
+    }
 
-	public void setDoors(int doors) {
-		this.doors = doors;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public int getGears() {
-		return gears;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public void setGears(int gears) {
-		this.gears = gears;
-	}
+    public int getDoors() {
+        return doors;
+    }
 
-	public boolean isManual() {
-		return isManual;
-	}
+    public void setDoors(int doors) {
+        this.doors = doors;
+    }
 
-	public void setManual(boolean isManual) {
-		this.isManual = isManual;
-	}
+    public int getGears() {
+        return gears;
+    }
 
-	public int getCurrentGear() {
-		return currentGear;
-	}
+    public void setGears(int gears) {
+        this.gears = gears;
+    }
 
-	public void setCurrentGear(int currentGear) {
-		this.currentGear = currentGear;
-	}
+    public boolean isManual() {
+        return isManual;
+    }
 
-	
+    public void setManual(boolean isManual) {
+        this.isManual = isManual;
+    }
+
+    public int getCurrentGear() {
+        return currentGear;
+    }
+
+    public void setCurrentGear(int currentGear) {
+        this.currentGear = currentGear;
+    }
 }
